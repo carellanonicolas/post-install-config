@@ -2,54 +2,50 @@
 <img src="https://i.imgur.com/Clzj7Xs.png" alt="osTicket logo"/>
 </p>
 
-<h1>osTicket - Post-Install Configuration</h1>
-This tutorial outlines the post-install configuration of the open-source help desk ticketing system osTicket.<br />
+# osTicket Post Installation Setup
 
+## Overview
+This repository provides a structured approach to setting up osTicket on a Windows 10 Virtual Machine hosted in Microsoft Azure.
 
-<h2>Video Demonstration</h2>
+## Prerequisites
+Ensure the following are available before installation:
+- Azure Virtual Machine (Windows 10, 4 vCPUs)
+- Remote Desktop Access
+- Internet Information Services (IIS) with CGI enabled
+- PHP 7.3.8, MySQL 5.5.62, and required modules
+- osTicket v1.15.8 installation files
 
-- ### [YouTube: How To Configure osTicket, post-installation](https://www.youtube.com)
+## Installation Steps
 
-<h2>Environments and Technologies Used</h2>
+### Post-Installation Configuration
+After installing osTicket, perform the following configurations:
 
-- Microsoft Azure (Virtual Machines/Compute)
-- Remote Desktop
-- Internet Information Services (IIS)
+1. **Admin/Analyst Login Page:**
+   - [Admin Panel](http://localhost/osTicket/scp/login.php)
+   - [End Users Portal](http://localhost/osTicket)
 
-<h2>Operating Systems Used </h2>
+2. **Agent and User Management:**
+   - **Configure Roles:**
+     - Admin Panel → Agents → Roles → Create and assign roles (e.g., Supreme Admin)
+   - **Configure Departments:**
+     - Admin Panel → Agents → Departments (e.g., SysAdmins, Help Desk, Networking)
+   - **Configure Teams:**
+     - Admin Panel → Agents → Teams (e.g., Online Banking)
+   - **Allow Ticket Creation:**
+     - Admin Panel → Settings → User Settings (Uncheck: unregistered users can create tickets)
+   - **Require Registration:**
+     - Ensure only registered users can create tickets
 
-- Windows 10</b> (21H2)
+3. **Configure Agents and Users:**
+   - **Agents:**
+     - Admin Panel → Agents → Add New
+     - Example: Jane (SysAdmins), John (Support)
+   - **Users:**
+     - Agent Panel → Users → Add New
+     - Example: Karen, Ken
 
-<h2>Post-Install Configuration Objectives</h2>
-
-- Item 1
-- Item 2
-- Item 3
-- Item 4
-- Item 5
-
-<h2>Configuration Steps</h2>
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+4. **Service Level Agreement (SLA) Configuration:**
+   - Admin Panel → Manage → SLA
+     - **Sev-A:** 1-hour grace period, 24/7 schedule
+     - **Sev-B:** 4-hour grace period, 24/7 schedule
+     - **Sev-C:** 8-hour grace period, business hours
